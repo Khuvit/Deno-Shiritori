@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Game Over</title>
+  </head>
+  <body>
+    <h1 class="Header">ゲームオーバーです。</h1>
+    <p class="Paragraph">
+      しりとりゲームをプレイしていただき、誠にありがとうございました。
+    </p>
+    <p class="Paragraph2">またプレイされますか？</p>
+    <button id="StartButton" onclick="restartGame()">プレイ！</button>
+
+    <script>
+      function restartGame() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

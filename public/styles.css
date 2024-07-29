@@ -1,3 +1,50 @@
 body {
-  background: #87ceeb;
+  background: #cce8f3;
+}
+
+.Header {
+  background: #c3e4f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.Paragraph {
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+}
+
+#firstWordButton,
+#nextWordSendButton,
+#StartButton {
+  background: #4db250;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+#previousWord {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+#nextWordInput {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+  margin: -5px auto 10px auto;
+}
+
+.Paragraph2 {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
 }

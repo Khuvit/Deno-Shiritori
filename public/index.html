@@ -5,41 +5,66 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>しりとり</h1>
-    <p id="previousWord"></p>
-    <input id="nextWordInput" type="text" />
-    <button id="nextWordSendButton">送信</button>
+    <h1 class="Header">しりとり</h1>
+    <br />
+    <p class="Paragraph">
+      こんにちは、プレイするために　“開始”　ボタンを押してください！
+    </p>
+    <button id="firstWordButton">開始</button>
 
     <script>
-      window.onload = async (event) => {
-        const response = await fetch("/shiritori", { method: "GET" });
-        const previousWord = await response.text();
-        const paragraph = document.querySelector("#previousWord");
-        paragraph.innerHTML = `前の単語: ${previousWord}`;
-      };
+      const hiragana = [
+        "あ",
+        "い",
+        "う",
+        "え",
+        "お",
+        "か",
+        "き",
+        "く",
+        "け",
+        "こ",
+        "さ",
+        "し",
+        "す",
+        "せ",
+        "そ",
+        "た",
+        "ち",
+        "つ",
+        "て",
+        "と",
+        "な",
+        "に",
+        "ぬ",
+        "ね",
+        "の",
+        "は",
+        "ひ",
+        "ふ",
+        "へ",
+        "ほ",
+        "ま",
+        "み",
+        "む",
+        "め",
+        "も",
+        "や",
+        "ゆ",
+        "よ",
+        "ら",
+        "り",
+        "る",
+        "れ",
+        "ろ",
+        "わ",
+      ];
 
-      document.querySelector("#nextWordSendButton").onclick = async (event) => {
-        const nextWordInput = document.querySelector("#nextWordInput");
-        const nextWordInputText = nextWordInput.value;
-        const response = await fetch("/shiritori", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ nextWord: nextWordInputText }),
-        });
-
-        if (response.status !== 200) {
-          const errorJson = await response.text();
-          const errorObj = JSON.parse(errorJson);
-          alert(errorObj["errorMessage"]);
-          return;
-        }
-
-        const previousWord = await response.text();
-        const paragraph = document.querySelector("#previousWord");
-        paragraph.innerHTML = `前の単語: ${previousWord}`;
-        nextWordInput.value = "";
+      document.querySelector("#firstWordButton").onclick = () => {
+        const randomHiragana =
+          hiragana[Math.floor(Math.random() * hiragana.length)];
+        localStorage.setItem("firstHiragana", randomHiragana);
+        window.location.href = "game.html";
       };
     </script>
   </body>
